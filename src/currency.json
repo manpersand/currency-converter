@@ -1,0 +1,167 @@
+[
+  {
+    "code": "EUR",
+    "name": "Euro",
+    "countryCode": "EU"
+  },
+  {
+    "code": "CAD",
+    "name": "Canadian Dollar",
+    "countryCode": "CA"
+  },
+  {
+    "code": "HKD",
+    "name": "Hong Kong Dollar",
+    "countryCode": "HK"
+  },
+  {
+    "code": "ISK",
+    "name": "Icelandic Króna",
+    "countryCode": "IS"
+  },
+  {
+    "code": "PHP",
+    "name": "Philippine Peso",
+    "countryCode": "PH"
+  },
+  {
+    "code": "DKK",
+    "name": "Danish Krone",
+    "countryCode": "DK"
+  },
+  {
+    "code": "HUF",
+    "name": "Hungarian Forint",
+    "countryCode": "HU"
+  },
+  {
+    "code": "CZK",
+    "name": "Czech Republic Koruna",
+    "countryCode": "CZ"
+  },
+  {
+    "code": "AUD",
+    "name": "Australian Dollar",
+    "countryCode": "AU"
+  },
+  {
+    "code": "RON",
+    "name": "Romanian Leu",
+    "countryCode": "RO"
+  },
+  {
+    "code": "SEK",
+    "name": "Swedish Krona",
+    "countryCode": "SE"
+  },
+  {
+    "code": "IDR",
+    "name": "Indonesian Rupiah",
+    "countryCode": "ID"
+  },
+  {
+    "code": "INR",
+    "name": "Indian Rupee",
+    "countryCode": "IN"
+  },
+  {
+    "code": "BRL",
+    "name": "Brazilian Real",
+    "countryCode": "BR"
+  },
+  {
+    "code": "RUB",
+    "name": "Russian Ruble",
+    "countryCode": "RU"
+  },
+  {
+    "code": "HRK",
+    "name": "Croatian Kuna",
+    "countryCode": "HR"
+  },
+  {
+    "code": "JPY",
+    "name": "Japanese Yen",
+    "countryCode": "JP"
+  },
+  {
+    "code": "THB",
+    "name": "Thai Baht",
+    "countryCode": "TH"
+  },
+  {
+    "code": "CHF",
+    "name": "Swiss Franc",
+    "countryCode": "CH"
+  },
+  {
+    "code": "SGD",
+    "name": "Singapore Dollar",
+    "countryCode": "SG"
+  },
+  {
+    "code": "PLN",
+    "name": "Polish Zloty",
+    "countryCode": "PL"
+  },
+  {
+    "code": "BGN",
+    "name": "Bulgarian Lev",
+    "countryCode": "BG"
+  },
+  {
+    "code": "TRY",
+    "name": "Turkish Lira",
+    "countryCode": "TR"
+  },
+  {
+    "code": "CNY",
+    "name": "Chinese Yuan",
+    "countryCode": "CN"
+  },
+  {
+    "code": "NOK",
+    "name": "Norwegian Krone",
+    "countryCode": "BV"
+  },
+  {
+    "code": "NZD",
+    "name": "New Zealand Dollar",
+    "countryCode": "NZ"
+  },
+  {
+    "code": "ZAR",
+    "name": "South African Rand",
+    "countryCode": "ZA"
+  },
+  {
+    "code": "USD",
+    "name": "US Dollar",
+    "countryCode": "US"
+  },
+  {
+    "code": "MXN",
+    "name": "Mexican Peso",
+    "countryCode": "MX"
+  },
+  {
+    "code": "ILS",
+    "name": "Israeli New Sheqel",
+    "countryCode": "IL"
+  },
+  {
+    "code": "GBP",
+    "name": "British Pound Sterling",
+    "countryCode": "GB"
+  },
+  {
+    "code": "KRW",
+    "name": "South Korean Won",
+    "countryCode": "KR"
+  },
+  {
+    "code": "MYR",
+    "name": "Malaysian Ringgit",
+    "countryCode": "MY"
+  }
+]
