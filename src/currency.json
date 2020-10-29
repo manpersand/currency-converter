@@ -1,14 +1,61 @@
 [
   {
-    "code": "EUR",
-    "name": "Euro",
-    "countryCode": "EU"
+    "code": "USD",
+    "name": "US Dollar",
+    "countryCode": "US"
   },
   {
     "code": "CAD",
     "name": "Canadian Dollar",
     "countryCode": "CA"
   },
+
+  {
+    "code": "EUR",
+    "name": "Euro",
+    "countryCode": "EU"
+  },
+  {
+    "code": "INR",
+    "name": "Indian Rupee",
+    "countryCode": "IN"
+  },
+  {
+    "code": "GBP",
+    "name": "British Pound Sterling",
+    "countryCode": "GB"
+  },
+  {
+    "code": "AUD",
+    "name": "Australian Dollar",
+    "countryCode": "AU"
+  },
+  {
+    "code": "JPY",
+    "name": "Japanese Yen",
+    "countryCode": "JP"
+  },
+  {
+    "code": "CNY",
+    "name": "Chinese Yuan",
+    "countryCode": "CN"
+  },
+  {
+    "code": "KRW",
+    "name": "South Korean Won",
+    "countryCode": "KR"
+  },
+  {
+    "code": "NZD",
+    "name": "New Zealand Dollar",
+    "countryCode": "NZ"
+  },
+  {
+    "code": "MXN",
+    "name": "Mexican Peso",
+    "countryCode": "MX"
+  },
+
   {
     "code": "HKD",
     "name": "Hong Kong Dollar",
@@ -39,11 +86,7 @@
     "name": "Czech Republic Koruna",
     "countryCode": "CZ"
   },
-  {
-    "code": "AUD",
-    "name": "Australian Dollar",
-    "countryCode": "AU"
-  },
+
   {
     "code": "RON",
     "name": "Romanian Leu",
@@ -59,11 +102,7 @@
     "name": "Indonesian Rupiah",
     "countryCode": "ID"
   },
-  {
-    "code": "INR",
-    "name": "Indian Rupee",
-    "countryCode": "IN"
-  },
+
   {
     "code": "BRL",
     "name": "Brazilian Real",
@@ -79,11 +118,7 @@
     "name": "Croatian Kuna",
     "countryCode": "HR"
   },
-  {
-    "code": "JPY",
-    "name": "Japanese Yen",
-    "countryCode": "JP"
-  },
+
   {
     "code": "THB",
     "name": "Thai Baht",
@@ -114,51 +149,25 @@
     "name": "Turkish Lira",
     "countryCode": "TR"
   },
-  {
-    "code": "CNY",
-    "name": "Chinese Yuan",
-    "countryCode": "CN"
-  },
+
   {
     "code": "NOK",
     "name": "Norwegian Krone",
     "countryCode": "BV"
   },
-  {
-    "code": "NZD",
-    "name": "New Zealand Dollar",
-    "countryCode": "NZ"
-  },
+
   {
     "code": "ZAR",
     "name": "South African Rand",
     "countryCode": "ZA"
   },
-  {
-    "code": "USD",
-    "name": "US Dollar",
-    "countryCode": "US"
-  },
-  {
-    "code": "MXN",
-    "name": "Mexican Peso",
-    "countryCode": "MX"
-  },
+
   {
     "code": "ILS",
     "name": "Israeli New Sheqel",
     "countryCode": "IL"
   },
-  {
-    "code": "GBP",
-    "name": "British Pound Sterling",
-    "countryCode": "GB"
-  },
-  {
-    "code": "KRW",
-    "name": "South Korean Won",
-    "countryCode": "KR"
-  },
+
   {
     "code": "MYR",
     "name": "Malaysian Ringgit",

@@ -56,28 +56,43 @@ const customStyles = {
       ...flag(data.flagUrl, data.value),
     };
   },
+  dropdownIndicator: (styles, { isFocused }) => {
+    return {
+      ...styles,
+      opacity: isFocused ? 0.8 : 0.6, //focused? 80% opaque : 60%
+      color: isFocused ? "#2B6CB0" : "#63B3ED", //focused? blue.600 : blue.300
+      ":hover": { opacity: 1 }, //fully opaque on hover
+    };
+  },
   input: (styles) => ({ ...styles, fontSize: "1.4rem" }),
   placeholder: (styles) => ({ ...styles, fontSize: "1.4rem" }),
 };
 
-const CurrencySelect = ({ handleChange, defaultValue }) => {
+const CurrencySelect = ({ handleChange, defaultValue, ...rest }, ref) => {
   return (
     <Select
+      ref={ref}
       className="basic-single"
       classNamePrefix="select"
       //set the default value according to the currency code passed in the initial query
-      defaultValue={currencyOptions.filter(
-        (option) => option.value === defaultValue
-      )}
-      name="color"
+      defaultValue={
+        currencyOptions.filter((option) => option.value === defaultValue)[0]
+      }
       options={currencyOptions}
-      isClearable
       placeholder="Type to search..."
       styles={customStyles}
-      components={{ SingleValue }}
-      onChange={(selectedOption) => handleChange(selectedOption.value)}
+      components={{ SingleValue, IndicatorSeparator: () => null }}
+      onChange={(selectedOption, { action }) => {
+        console.log("onChange", action);
+        selectedOption
+          ? handleChange(selectedOption.value)
+          : handleChange(null);
+      }}
+      {...rest}
     />
   );
 };
 
-export default CurrencySelect;
+const forwardCurrencySelect = React.forwardRef(CurrencySelect);
+
+export default forwardCurrencySelect;

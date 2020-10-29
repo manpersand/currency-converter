@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Spinner, Stack, Text, Alert, AlertIcon } from "@chakra-ui/core";
 import { MdSwapHoriz, MdNavigateNext } from "react-icons/md";
 
-import SectionContainer from "./SectionContainer";
 import CustomIconButton from "./CustomIconButton";
 import InputFormControl from "./InputFormControl";
 import CurrencySelectFormControl from "./CurrencySelectFormControl";
+import CurrencyDisplay from "./CurrencyDisplay";
 
 const formStyle = {
   width: "100%",
@@ -13,11 +13,10 @@ const formStyle = {
 
 const Latest = ({ initialQuery }) => {
   const [query, setQuery] = useState({
-    amount: null,
+    amount: 1,
     from: null,
     to: null,
   });
-
   const [currency, setCurrency] = useState({
     amount: null,
     from: { code: null, rate: null },
@@ -26,6 +25,8 @@ const Latest = ({ initialQuery }) => {
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const fromRef = useRef();
+  const toRef = useRef();
 
   const getLatestCurrency = async (query) => {
     //if the amount entered by user is NaN set it to 1
@@ -34,14 +35,12 @@ const Latest = ({ initialQuery }) => {
     setQuery({ amount: amount, from: query.from, to: query.to });
     setError(false);
     setLoading(true);
-    // console.log(query);
+    console.log("Get call", query);
     try {
       const apiResp = await fetch(
         `https://api.exchangeratesapi.io/latest?base=${query["from"]}`
       );
       const respJSON = await apiResp.json();
-      // console.log(respJSON);
-
       setCurrency({
         amount: amount,
         from: { code: respJSON.base, rate: 1 / respJSON.rates[query.to] }, //the inverse of the requested rate (to show both rates)
@@ -56,16 +55,27 @@ const Latest = ({ initialQuery }) => {
   };
 
   useEffect(() => {
-    //getLatestCurrency(initialQuery);
+    getLatestCurrency(initialQuery);
   }, [initialQuery]);
 
+  const handleSwap = (e) => {
+    e.preventDefault();
+    const to = toRef.current.state.value;
+    const from = fromRef.current.state.value;
+    toRef.current.select.selectOption(from);
+    fromRef.current.select.selectOption(to);
+    //for some reason the first ref called for selectOption does not change the query value
+    //as a temporary fix manually changing the query value here
+    setQuery({ amount: query.amount, from: to.value, to: from.value });
+  };
+
   return (
-    <SectionContainer>
+    <Stack paddingTop="10">
       <form
         style={formStyle}
         onSubmit={(e) => {
           e.preventDefault();
-          //getLatestCurrency(query);
+          getLatestCurrency(query);
         }}
       >
         <Stack
@@ -85,10 +95,12 @@ const Latest = ({ initialQuery }) => {
           />
           <CurrencySelectFormControl
             handleChange={(value) => {
+              console.log("from:", value);
               setQuery({ amount: query.amount, to: query.to, from: value });
             }}
             label="From"
             defaultValue={initialQuery.from}
+            ref={fromRef}
           />
           <CustomIconButton
             tooltipLabel="Swap Currencies"
@@ -97,13 +109,16 @@ const Latest = ({ initialQuery }) => {
             transform={{ base: "rotate(90deg)", lg: "rotate(0)" }}
             color="white"
             variant="ghost"
+            onClick={handleSwap}
           />
           <CurrencySelectFormControl
             handleChange={(value) => {
+              console.log("to:", value);
               setQuery({ amount: query.amount, from: query.from, to: value });
             }}
             label="To"
             defaultValue={initialQuery.to}
+            ref={toRef}
           />
           <CustomIconButton
             tooltipLabel="Get Results"
@@ -116,54 +131,8 @@ const Latest = ({ initialQuery }) => {
           />
         </Stack>
       </form>
-      <Stack paddingY="10" align="center">
-        {loading && !error ? ( //loading without any errors
-          <Spinner
-            size="xl"
-            thickness="4px"
-            color="white"
-            emptyColor="blue.800"
-          />
-        ) : !loading && error ? ( //not loading but there is an error
-          <Alert status="error">
-            <AlertIcon />
-            There was an error processing your request
-          </Alert>
-        ) : (
-          //no error an not loading display results
-          <Stack align="center">
-            <Text
-              color="white"
-              fontSize={["lg", "xl", "3xl", "5xl"]}
-              fontWeight="700"
-            >
-              {currency.amount + " " + currency.from.code} ={" "}
-              {(currency.amount * currency.to.rate).toFixed(7) +
-                " " +
-                currency.to.code}
-            </Text>
-            <Text
-              color="white"
-              fontSize={["sm", "md", "lg", "2xl"]}
-              fontWeight="600"
-            >
-              {" "}
-              {"1 " + currency.from.code} ={" "}
-              {currency.to.rate.toFixed(7) + " " + currency.to.code}
-            </Text>
-            <Text
-              color="white"
-              fontSize={["sm", "md", "lg", "2xl"]}
-              fontWeight="600"
-            >
-              {" "}
-              {"1 " + currency.to.code} ={" "}
-              {currency.from.rate.toFixed(7) + " " + currency.from.code}
-            </Text>
-          </Stack>
-        )}
-      </Stack>
-    </SectionContainer>
+      <CurrencyDisplay loading={loading} error={error} currency={currency} />
+    </Stack>
   );
 };
 

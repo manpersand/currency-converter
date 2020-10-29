@@ -37,13 +37,20 @@ const Main = () => {
               <Latest
                 initialQuery={{
                   amount: 1,
-                  from: "USD",
-                  to: "CAD",
+                  from: "CAD",
+                  to: "USD",
                 }}
               />
             </TabPanel>
             <TabPanel backgroundColor="blue.600">
-              <Historical />
+              <Historical
+                initialQuery={{
+                  amount: 1,
+                  from: "CAD",
+                  to: "USD",
+                  date: "1999-01-01",
+                }}
+              />
             </TabPanel>
           </TabPanels>
         </Tabs>

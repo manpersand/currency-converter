@@ -3,7 +3,7 @@ import { FormControl, FormLabel } from "@chakra-ui/core";
 
 import CurrencySelect from "./CurrencySelect";
 
-const CurrencySelectFormControl = ({ defaultValue, handleChange, label }) => {
+const CurrencySelectFormControl = ({ label, ...rest }, ref) => {
   return (
     <FormControl>
       <FormLabel
@@ -13,9 +13,13 @@ const CurrencySelectFormControl = ({ defaultValue, handleChange, label }) => {
       >
         {label}
       </FormLabel>
-      <CurrencySelect defaultValue={defaultValue} handleChange={handleChange} />
+      <CurrencySelect ref={ref} {...rest} />
     </FormControl>
   );
 };
 
-export default CurrencySelectFormControl;
+const forwardCurrencySelectFormControl = React.forwardRef(
+  CurrencySelectFormControl
+);
+
+export default forwardCurrencySelectFormControl;
