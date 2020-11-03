@@ -41,7 +41,6 @@ const Historical = ({ initialQuery }) => {
     });
     setError(false);
     setLoading(true);
-    console.log("Get call", query);
     try {
       const apiResp = await fetch(
         `https://api.exchangeratesapi.io/${query.date}?base=${query.from}`
@@ -53,7 +52,6 @@ const Historical = ({ initialQuery }) => {
         to: { code: query.to, rate: respJSON.rates[query.to] }, //the actual rate
         date: respJSON.date,
       });
-      // console.log(currency);
     } catch (err) {
       setError(true);
     }

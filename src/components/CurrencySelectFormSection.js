@@ -13,8 +13,8 @@ const CurrencySelectFormSection = ({ query, setQuery, initialQuery }) => {
     e.preventDefault();
     const to = toRef.current.state.value;
     const from = fromRef.current.state.value;
-    toRef.current.select.selectOption(from);
-    fromRef.current.select.selectOption(to);
+    toRef.current.select.setValue(from);
+    fromRef.current.select.setValue(to);
     //for some reason the first ref called for selectOption does not change the query value
     //as a temporary fix manually changing the query value here
     setQuery({
@@ -51,7 +51,6 @@ const CurrencySelectFormSection = ({ query, setQuery, initialQuery }) => {
       />
       <CurrencySelectFormControl
         handleChange={(value) => {
-          console.log("to:", value);
           setQuery({
             amount: query.amount,
             from: query.from,

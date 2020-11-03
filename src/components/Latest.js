@@ -36,7 +36,6 @@ const Latest = ({ initialQuery }) => {
     setQuery({ amount: amount, from: query.from, to: query.to });
     setError(false);
     setLoading(true);
-    console.log("Get call", query);
     try {
       const apiResp = await fetch(
         `https://api.exchangeratesapi.io/latest?base=${query.from}`
@@ -48,7 +47,6 @@ const Latest = ({ initialQuery }) => {
         to: { code: query.to, rate: respJSON.rates[query.to] }, //the actual rate
         date: respJSON.date,
       });
-      // console.log(currency);
     } catch (err) {
       setError(true);
     }

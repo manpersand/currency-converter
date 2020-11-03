@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Select, { components } from "react-select";
 import { Stack, Text, Image } from "@chakra-ui/core";
 
@@ -81,9 +81,11 @@ const CurrencySelect = ({ handleChange, defaultValue, ...rest }, ref) => {
       options={currencyOptions}
       placeholder="Type to search..."
       styles={customStyles}
-      components={{ SingleValue, IndicatorSeparator: () => null }}
+      components={{
+        SingleValue,
+        IndicatorSeparator: () => null,
+      }}
       onChange={(selectedOption, { action }) => {
-        console.log("onChange", action);
         selectedOption
           ? handleChange(selectedOption.value)
           : handleChange(null);
