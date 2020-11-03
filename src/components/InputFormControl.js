@@ -6,12 +6,17 @@ const InputFormControl = ({ label, ...rest }) => {
     <FormControl>
       <FormLabel
         display={["none", "none", "none", "initial"]}
-        fontSize="2rem"
+        fontSize={{ base: "1.5rem", lg: "2rem" }}
         color="white"
       >
         {label}
       </FormLabel>
-      <Input size="lg" fontSize="2rem" backgroundColor="white" {...rest} />
+      <Input
+        size="lg"
+        fontSize={{ base: "1.5rem", lg: "2rem" }}
+        backgroundColor="white"
+        {...rest}
+      />
     </FormControl>
   );
 };

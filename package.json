@@ -1,5 +1,6 @@
 {
   "name": "currency-converter",
+  "homepage": "https://manpreetsandhu.io/currency/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
