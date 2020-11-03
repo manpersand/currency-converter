@@ -2,6 +2,7 @@ import React from "react";
 import { Stack, Text, Alert, AlertIcon, Spinner } from "@chakra-ui/core";
 
 const CurrencyDisplay = ({ loading, error, currency }) => {
+  const date = new Date(currency.date + "T00:00:00"); //added time string to adjust for local timezone
   return (
     <Stack
       height={{ base: "200px", lg: "250px" }}
@@ -26,7 +27,7 @@ const CurrencyDisplay = ({ loading, error, currency }) => {
         <Stack align="center">
           <Text
             color="white"
-            fontSize={["lg", "xl", "3xl", "5xl"]}
+            fontSize={["xl", "xl", "3xl", "5xl"]}
             fontWeight="700"
           >
             {currency.amount + " " + currency.from.code} ={" "}
@@ -36,7 +37,7 @@ const CurrencyDisplay = ({ loading, error, currency }) => {
           </Text>
           <Text
             color="white"
-            fontSize={["sm", "md", "lg", "2xl"]}
+            fontSize={["lg", "lg", "lg", "2xl"]}
             fontWeight="600"
           >
             {" "}
@@ -55,6 +56,13 @@ const CurrencyDisplay = ({ loading, error, currency }) => {
             {currency.from.rate //if there is an error error this will be null
               ? currency.from.rate.toFixed(7) + " " + currency.from.code
               : null}
+          </Text>
+          <Text
+            color="white"
+            fontSize={["10px", "xs", "sm", "md"]}
+            fontWeight="400"
+          >
+            Updated: {date.toDateString()}
           </Text>
         </Stack>
       )}

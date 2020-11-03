@@ -1,7 +1,7 @@
 import React from "react";
 import { FormControl, FormLabel, Input } from "@chakra-ui/core";
 
-const InputFormControl = ({ value, onChange, label }) => {
+const InputFormControl = ({ label, ...rest }) => {
   return (
     <FormControl>
       <FormLabel
@@ -11,13 +11,7 @@ const InputFormControl = ({ value, onChange, label }) => {
       >
         {label}
       </FormLabel>
-      <Input
-        onChange={onChange}
-        size="lg"
-        fontSize="2rem"
-        backgroundColor="white"
-        value={value}
-      />
+      <Input size="lg" fontSize="2rem" backgroundColor="white" {...rest} />
     </FormControl>
   );
 };

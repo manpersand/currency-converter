@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <ChakraProvider>
         <CSSReset />
-        <Stack justify="space-between" spacing={0}>
+        <Stack>
           <Header />
           <Main />
           <Footer />
